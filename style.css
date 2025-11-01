@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Laila");
+html {
+  font-size: 1vh;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-aspect-ratio: 1/1) {
+  html {
+    font-size: 1vw;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #efe9dc;
+  overflow: hidden;
+}
+
+.container {
+  width: 50rem;
+  height: 50rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container * {
+  position: absolute;
+}
+
+.instructions {
+  width: 100%;
+  text-align: center;
+  top: 105%;
+  font-size: 2.5rem;
+  font-family: "Laila", serif;
+}
+
+.piece {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.piece.grabbing {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.big-triangle-1 {
+  background: #EC4339;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
+          clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.big-triangle-2 {
+  background: #F47B16;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.square {
+  background: #7CB82F;
+  top: 25%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+          clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.parallelogram {
+  background: #2b7ac4;
+  left: 0;
+  top: 75%;
+  height: 25%;
+  width: 75%;
+  -webkit-clip-path: polygon(0 100%, 33.33% 0, 100% 0, 66.67% 100%);
+          clip-path: polygon(0 100%, 33.33% 0, 100% 0, 66.67% 100%);
+}
+
+.med-triangle {
+  background: #00AEB3;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.small-triangle-1 {
+  background: #8C68CB;
+  top: 50%;
+  left: 25%;
+  height: 25%;
+  width: 50%;
+  -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.small-triangle-2 {
+  background: #EFB920;
+  top: 0;
+  left: 75%;
+  width: 25%;
+  height: 50%;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+          clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
