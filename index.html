@@ -3,22 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tangram Interactivo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tangram en TicTacSoft</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-<div class="container">
-  <div class="instructions">Arrastra para mover las figuras.
-    Pulsa las flechas de control mientras sostienes una figura para rotar.</div>
-  <div class="piece big-triangle-1"></div>
-  <div class="piece big-triangle-2"></div>
-  <div class="piece square"></div>
-  <div class="piece parallelogram"></div>
-  <div class="piece med-triangle"></div>
-  <div class="piece small-triangle-1"></div>
-  <div class="piece small-triangle-2"></div>
+<button id="open-tangram-btn">Abrir Minijuego Tangram</button>
+
+<div id="tangram-modal" class="tangram-modal-overlay">
+  
+  <div class="tangram-modal-content">
+    <span class="tangram-close">&times;</span>
+
+    <div class="titulo">Bienvenido al Tangram de TicTacSoft</div>
+    <ul>
+      <li class="instructions"><strong>MOVER:</strong> Sostén la figura para arrastrala.</li>
+      <li class="instructions"><strong>ROTAR:</strong> Sostén la figura y usa las flechas Izquierda o Derecha.</li>
+      <li class="instructions"><strong>INVERTIR:</strong> Sostén la figura y usa las flechas Arriba o Abajo.</li>
+    </ul>
+    
+    <div class="container">
+      <div class="piece big-triangle-1"></div>
+      <div class="piece big-triangle-2"></div>
+      <div class="piece square"></div>
+      <div class="piece parallelogram"></div>
+      <div class="piece med-triangle"></div>
+      <div class="piece small-triangle-1"></div>
+      <div class="piece small-triangle-2"></div>
+    </div>
+
+    <div class="controles">
+      <button id="reset-tangram-btn">Reiniciar</button>
+      <button id="rezise-pieces">Ajustar Tamaño</button>
+      <button id="theme">Tema</button>
+      <button id="ramdom-image">Imagen Aleatoria</button>
+    </div>
+  </div>
 </div>
-	<script src="script.js"></script>
+
+<script src="script.js"></script> 
+
 </body>
 </html>
