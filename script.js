@@ -168,3 +168,125 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 }); // Fin de DOMContentLoaded
+
+/* TEMAS PARA TANGRAM */
+
+  // --- 🎨 CAMBIO DE TEMA ---
+  const themeBtn = document.getElementById("theme");
+  const piecesArray = Array.from(document.querySelectorAll(".piece"));
+
+  // Lista de temas
+  const themes = [
+    {
+        name: "Clásico",
+        colors: ["#EC4339", "#F47B16", "#7CB82F", "#2b7ac4", "#00AEB3", "#8C68CB", "#EFB920"]
+    },
+    {
+        name: "Grayscale",
+        colors: ["#111", "#333", "#555", "#777", "#999", "#bbb", "#ddd"]
+    },
+    {
+        name: "Green-nature",
+        colors: ["#0b6623", "#1a7f38", "#2e8b57", "#3cb371", "#66cdaa", "#98fb98", "#c1f0c1"]
+    },
+    {
+        name: "TicTacSoft",
+        colors: ["#9d161f", "#830213", "#d61e2b", "#ba0920", "#830213", "#701016", "#5a0e13"]
+    },
+    {
+        name: "Sunset-ocean",
+        colors: ["#FF5733", "#FFC300", "#DAF7A6", "#33FFB8", "#3374FF", "#7C33FF", "#FF33B2"]
+    },
+    {
+        name: "Cyberpunk",
+        colors: ["#FF00A0", "#00F7F7", "#FF6600", "#9D00FF", "#00FF6A", "#C9FF00", "#300094"]
+    },
+    {
+        name: "Wood-craft",
+        colors: ["#8B4513", "#A0522D", "#CD853F", "#D2B48C", "#F5DEB3", "#F5F5DC", "#FAF0E6"]
+    }
+    // --------------------
+];
+
+  let currentTheme = 0;
+
+  function applyTheme(themeIndex) {
+    const selected = themes[themeIndex];
+    piecesArray.forEach((piece, i) => {
+      const color = selected.colors[i % selected.colors.length];
+      // Si es degradado, usar backgroundImage; si no, usar background
+      if (color.startsWith("linear-gradient")) {
+        piece.style.backgroundImage = color;
+        piece.style.background = "none";
+      } else {
+        piece.style.background = color;
+        piece.style.backgroundImage = "none";
+      }
+    });
+    const formattedName = selected.name
+        .split('-') // Separa por guiones (ej: ['green', 'nature'])
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitaliza cada palabra
+        .join(' '); // Une con espacios
+        
+    // Asigna el texto al botón.
+    themeBtn.textContent = `Tema: ${formattedName}`;
+  }
+
+  // Al hacer clic, cambiar al siguiente tema
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      currentTheme = (currentTheme + 1) % themes.length;
+      applyTheme(currentTheme);
+    });
+  }
+
+  // Aplicar tema inicial (original)
+  applyTheme(currentTheme);
+
+
+// --- 🌙 LÓGICA DEL MODO OSCURO/CLARO ---
+
+  // --- 1. SELECCIÓN DE ELEMENTOS ---
+  // ... (tus otras variables)
+  const modal = document.getElementById('tangram-modal');
+  const modalContent = document.querySelector('.tangram-modal-content'); // Asegúrate de tener esta línea
+  const toggleModeBtn = document.getElementById('toggle-mode-btn'); // <-- AÑADE ESTA
+
+
+  if (toggleModeBtn && modalContent) {
+    // Función para cambiar el modo
+    const toggleDarkMode = () => {
+      // Intercambia (toggle) la clase 'dark-mode' en el contenido del modal
+      modalContent.classList.toggle('dark-mode');
+
+      // Actualiza el texto del botón basado en el estado
+      if (modalContent.classList.contains('dark-mode')) {
+        toggleModeBtn.textContent = 'Modo Claro';
+      } else {
+        toggleModeBtn.textContent = 'Modo Oscuro';
+      }
+    };
+
+    // Asigna la función al clic del botón
+    toggleModeBtn.addEventListener('click', toggleDarkMode);
+    
+    // Opcional: Establecer un modo inicial basado en las preferencias del sistema
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // Si el sistema prefiere el modo oscuro, lo activamos por defecto al abrir.
+      modalContent.classList.add('dark-mode');
+      toggleModeBtn.textContent = 'Modo Claro';
+    }
+  }
+
+
+// GRID BACKGROUND
+const toggleGridBtn = document.getElementById('toggle-grid-btn');
+const container = document.querySelector(".container");
+
+if (toggleGridBtn) {
+    toggleGridBtn.addEventListener('click', () => {
+        container.classList.toggle('show-grid');
+        const isGridVisible = container.classList.contains('show-grid');
+        toggleGridBtn.textContent = isGridVisible ? 'Ocultar Guías' : 'Mostrar Guías';
+    });
+}

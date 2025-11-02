@@ -26,9 +26,28 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .container * {
   position: absolute;
 }
+
+.container.show-grid {
+    /* 1. Define la imagen de fondo con gradientes repetitivos (líneas) */
+    background-image: 
+        /* Líneas horizontales */
+        linear-gradient(to bottom, transparent 24.8%, #888 24.9%, #888 25.1%, transparent 25.2%),
+        linear-gradient(to bottom, transparent 49.8%, #888 49.9%, #888 50.1%, transparent 50.2%),
+        linear-gradient(to bottom, transparent 74.8%, #888 74.9%, #888 75.1%, transparent 75.2%),
+        /* Líneas verticales */
+        linear-gradient(to right, transparent 24.8%, #888 24.9%, #888 25.1%, transparent 25.2%),
+        linear-gradient(to right, transparent 49.8%, #888 49.9%, #888 50.1%, transparent 50.2%),
+        linear-gradient(to right, transparent 74.8%, #888 74.9%, #888 75.1%, transparent 75.2%);
+
+    /* 2. Asegúrate de que las líneas se extiendan por todo el contenedor */
+    background-size: 100% 100%;
+    border: 1px solid #3412D4; /* Mantenemos el borde del contenedor */
+}
+
 .titulo {
   width: 100%;
   text-align: center;
@@ -137,14 +156,14 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto; /* Permite scroll si el modal es muy grande */
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
 /* El contenedor blanco del contenido */
 .tangram-modal-content {
-  background-color: #fefefe;
+  
   margin: 1% auto; /* 8% desde arriba y centrado horizontalmente */
   border: 1px solid #888;
   width: 100%;
@@ -232,3 +251,47 @@ body {
     background: linear-gradient(180deg, #475569, #334155);
   }
 }
+
+
+/* MODO OSCURO */
+/* --- ESTILOS DEL MODO OSCURO --- */
+
+/* 1. Cambia el fondo del contenido del modal y el texto principal */
+.tangram-modal-content.dark-mode {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #f1f1f1; /* Texto claro */
+    border-color: #444;
+}
+
+/* 2. Cambia las instrucciones/títulos */
+.tangram-modal-content.dark-mode .titulo,
+.tangram-modal-content.dark-mode .instructions {
+    color: #e0e0e0;
+}
+
+/* 3. Cambia el fondo del contenedor de controles */
+.controles {
+    /* Mantén tus estilos base de controles */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+}
+
+.tangram-modal-content.dark-mode .controles {
+    background: rgba(26, 26, 26, 0.9); /* Fondo oscuro semitransparente */
+    box-shadow: 0 -3px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Estilos de botones en modo oscuro */
+.tangram-modal-content.dark-mode .controles button {
+    background: linear-gradient(180deg, #333, #111);
+    border: 1px solid #555;
+    color: #f1f1f1;
+}
+
+.tangram-modal-content.dark-mode .controles button:hover {
+    background: linear-gradient(180deg, #444, #222);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Nota: Los colores de las piezas (big-triangle-1, etc.) no deben cambiar con el modo */
+/* ya que los controlamos con la lógica del botón "Tema" */
