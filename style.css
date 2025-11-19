@@ -188,9 +188,9 @@ body {
 
 .tangram-close:hover,
 .tangram-close:focus {
-  color: #000;
+  color: red;
   text-decoration: none;
-  border: 1px solid #888;
+  
 }
 
 /* Estilos para el contenedor de botones */
