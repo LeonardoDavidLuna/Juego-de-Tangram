@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tangram en TicTacSoft</title>
-    <link rel="stylesheet" href="style.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tangram en TicTacSoft</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<button id="open-tangram-btn">Abrir Minijuego Tangram</button>
+  <button id="open-tangram-btn">Abrir Minijuego Tangram</button>
 
-<div id="tangram-modal" class="tangram-modal-overlay">
-  
-  <div class="tangram-modal-content">
-    <span class="tangram-close">&times;</span>
+  <div id="tangram-modal" class="tangram-modal-overlay">
 
-    <div class="titulo">Bienvenido al Tangram de TicTacSoft</div>
-    <ul>
-      <li class="instructions"><strong>MOVER:</strong> Sostén la figura para arrastrala.</li>
-      <li class="instructions"><strong>ROTAR:</strong> Sostén la figura y usa las flechas Izquierda o Derecha.</li>
-      <li class="instructions"><strong>INVERTIR:</strong> Sostén la figura y usa las flechas Arriba o Abajo.</li>
-      <li class="instructions"><strong>MOVER TODO:</strong> Mantén pulsado CTRL y arrastre para mover todas las piezas.</li>
-    </ul>
-    
-    <div class="container">
-      <div class="piece big-triangle-1"></div>
-      <div class="piece big-triangle-2"></div>
-      <div class="piece square"></div>
-      <div class="piece parallelogram"></div>
-      <div class="piece med-triangle"></div>
-      <div class="piece small-triangle-1"></div>
-      <div class="piece small-triangle-2"></div>
-    </div>
+    <div class="tangram-modal-content">
+      <span class="tangram-close">&times;</span>
 
-    <div class="controles">
-      <button id="reset-tangram-btn">Reiniciar</button>
-      <button id="ramdom-image">Imagen Aleatoria</button>
-      <button id="rezise-pieces">Cambiar Tamaño</button>
-      <button id="toggle-grid-btn">Cuadrilla</button>
-      <button id="theme">Tema:</button>
-      <button id="toggle-mode-btn">Modo Oscuro</button>
+      <div class="titulo">Bienvenido al Tangram de TicTacSoft</div>
+      <ul>
+        <li class="instructions"><strong>MOVER:</strong> Arrastra con el mouse o dedo.</li>
+        <li class="instructions"><strong>ROTAR:</strong> Flechas (PC) o Doble toque (Móvil).</li>
+        <li class="instructions"><strong>INVERTIR:</strong> Flechas Arriba/Abajo (PC) o Mantener pulsado (Móvil).</li>
+        <li class="instructions"><strong>MOVER TODO:</strong> CTRL + Arrastrar (Solo PC).</li>
+      </ul>
+
+      <div class="container">
+        <div class="piece big-triangle-1"></div>
+        <div class="piece big-triangle-2"></div>
+        <div class="piece square"></div>
+        <div class="piece parallelogram"></div>
+        <div class="piece med-triangle"></div>
+        <div class="piece small-triangle-1"></div>
+        <div class="piece small-triangle-2"></div>
+      </div>
+
+      <div class="controles">
+        <button id="reset-tangram-btn">Reiniciar</button>
+        <button id="ramdom-image">Imagen Aleatoria</button>
+        <button id="rezise-pieces">Cambiar Tamaño</button>
+        <!-- <button id="toggle-grid-btn">Cuadrilla</button>-->
+        <button id="theme">Tema:</button>
+        <button id="toggle-mode-btn">Modo Oscuro</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="script.js"></script> 
+  <script src="script.js"></script>
 
 </body>
+
 </html>
